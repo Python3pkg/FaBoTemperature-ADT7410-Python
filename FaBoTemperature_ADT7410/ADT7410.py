@@ -1,8 +1,8 @@
 # coding: utf-8
-## @package FaBoTemperature
+## @package FaBoTemperature_ADT7410
 #  This is a library for the FaBo Temperature I2C Brick.
 #
-#  http://fabo.io/209.html
+#  http://fabo.io/207.html
 #
 #  Released under APACHE LICENSE, VERSION 2.0
 #
@@ -46,15 +46,16 @@ BIT16_OP_MODE_2FAULT  = 0b00000001
 BIT16_OP_MODE_3FAULT  = 0b00000010
 BIT16_OP_MODE_4FAULT  = 0b00000011
 
+## smbus
 bus = smbus.SMBus(1)
 
-## FaBoTemperature
-# FaBo Temperature I2C Controll class
+## FaBo Temperature I2C Controll class
 class ADT7410:
 
     ## Constructor
-    def __init__(self):
-        self.address = SLAVE_ADDRESS
+    #  @param [in] address ADT7410 I2C slave address default:0x48
+    def __init__(self, address=SLAVE_ADDRESS):
+        self.address = address
         self.configure()
 
     ## Configure Device
