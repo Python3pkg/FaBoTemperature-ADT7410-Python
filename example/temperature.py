@@ -19,7 +19,7 @@ adt7410 = FaBoTemperature_ADT7410.ADT7410()
 try:
     while True:
         temp = adt7410.read()
-        print "Temperature = ", temp
+        print("Temperature = ", temp)
 
         time.sleep(0.5)
 
